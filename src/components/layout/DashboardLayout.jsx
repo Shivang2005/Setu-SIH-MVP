@@ -6,7 +6,7 @@ export default function DashboardLayout({ title, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex bg-canvas">
+    <div className="min-h-screen flex bg-canvas dark:bg-ink-950">
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex-1 min-w-0 flex flex-col">
         <Topbar title={title} onMenuClick={() => setSidebarOpen(true)} />

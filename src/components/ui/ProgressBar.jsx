@@ -1,9 +1,9 @@
-export default function ProgressBar({ value = 0, className = "", tone = "accent", track = "bg-slate-100", height = "h-2" }) {
+export default function ProgressBar({ value = 0, className = "", tone = "accent", track = "bg-slate-100 dark:bg-white/10", height = "h-2" }) {
   const toneClass = {
     accent: "bg-accent-500",
     success: "bg-success-500",
     amber: "bg-amber-500",
-    ink: "bg-ink-700",
+    ink: "bg-ink-700 dark:bg-white/60",
   }[tone];
 
   return (

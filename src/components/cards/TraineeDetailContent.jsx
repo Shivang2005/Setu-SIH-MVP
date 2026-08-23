@@ -22,8 +22,8 @@ export default function TraineeDetailContent({ trainee, matchJobId }) {
           {initials(trainee.name)}
         </span>
         <div>
-          <p className="font-display font-semibold text-lg text-ink-900">{trainee.name}</p>
-          <p className="text-sm text-slate-500 flex items-center gap-1.5 mt-0.5">
+          <p className="font-display font-semibold text-lg text-ink-900 dark:text-white">{trainee.name}</p>
+          <p className="text-sm text-slate-500 dark:text-white/50 flex items-center gap-1.5 mt-0.5">
             <MapPin className="w-3.5 h-3.5" /> {trainee.state}
           </p>
         </div>
@@ -33,11 +33,11 @@ export default function TraineeDetailContent({ trainee, matchJobId }) {
       </div>
 
       {match && (
-        <div className="flex items-center gap-5 bg-slate-50 rounded-xl p-4">
+        <div className="flex items-center gap-5 bg-slate-50 dark:bg-white/5 rounded-xl p-4">
           <MatchGauge value={match.matchPercent} size={88} strokeWidth={8} />
           <div>
-            <p className="text-sm font-medium text-ink-900">Match for {matchJob.title}</p>
-            <p className="text-xs text-slate-500 mt-1">{match.matched.length} of {match.total} required skills matched</p>
+            <p className="text-sm font-medium text-ink-900 dark:text-white">Match for {matchJob.title}</p>
+            <p className="text-xs text-slate-500 dark:text-white/50 mt-1">{match.matched.length} of {match.total} required skills matched</p>
             {match.missing.length > 0 && (
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {match.missing.map((s) => <Badge key={s} variant="missing">{s}</Badge>)}
@@ -49,53 +49,53 @@ export default function TraineeDetailContent({ trainee, matchJobId }) {
 
       <div className="grid sm:grid-cols-2 gap-4 text-sm">
         <div className="flex items-start gap-2.5">
-          <GraduationCap className="w-4.5 h-4.5 text-slate-400 mt-0.5 shrink-0" />
+          <GraduationCap className="w-4.5 h-4.5 text-slate-400 dark:text-white/40 mt-0.5 shrink-0" />
           <div>
-            <p className="text-xs text-slate-400">Program</p>
-            <p className="text-ink-800 font-medium">{program?.name}</p>
-            <p className="text-xs text-slate-400 mt-0.5">{trainee.trainingProgress}% complete · {trainee.status}</p>
+            <p className="text-xs text-slate-400 dark:text-white/40">Program</p>
+            <p className="text-ink-800 dark:text-white/80 font-medium">{program?.name}</p>
+            <p className="text-xs text-slate-400 dark:text-white/40 mt-0.5">{trainee.trainingProgress}% complete · {trainee.status}</p>
           </div>
         </div>
         <div className="flex items-start gap-2.5">
-          <Briefcase className="w-4.5 h-4.5 text-slate-400 mt-0.5 shrink-0" />
+          <Briefcase className="w-4.5 h-4.5 text-slate-400 dark:text-white/40 mt-0.5 shrink-0" />
           <div>
-            <p className="text-xs text-slate-400">Employment</p>
-            <p className="text-ink-800 font-medium">
+            <p className="text-xs text-slate-400 dark:text-white/40">Employment</p>
+            <p className="text-ink-800 dark:text-white/80 font-medium">
               {currentJob ? `${currentJob.title} @ ${employer?.name}` : "Not currently employed"}
             </p>
           </div>
         </div>
         {trainee.salaryLPA && (
           <div className="flex items-start gap-2.5">
-            <IndianRupee className="w-4.5 h-4.5 text-slate-400 mt-0.5 shrink-0" />
+            <IndianRupee className="w-4.5 h-4.5 text-slate-400 dark:text-white/40 mt-0.5 shrink-0" />
             <div>
-              <p className="text-xs text-slate-400">Salary</p>
-              <p className="text-ink-800 font-medium">{formatLPA(trainee.salaryLPA)}</p>
+              <p className="text-xs text-slate-400 dark:text-white/40">Salary</p>
+              <p className="text-ink-800 dark:text-white/80 font-medium">{formatLPA(trainee.salaryLPA)}</p>
             </div>
           </div>
         )}
         {trainee.joiningDate && (
           <div className="flex items-start gap-2.5">
-            <Calendar className="w-4.5 h-4.5 text-slate-400 mt-0.5 shrink-0" />
+            <Calendar className="w-4.5 h-4.5 text-slate-400 dark:text-white/40 mt-0.5 shrink-0" />
             <div>
-              <p className="text-xs text-slate-400">Joining date</p>
-              <p className="text-ink-800 font-medium">{formatDate(trainee.joiningDate)}</p>
+              <p className="text-xs text-slate-400 dark:text-white/40">Joining date</p>
+              <p className="text-ink-800 dark:text-white/80 font-medium">{formatDate(trainee.joiningDate)}</p>
             </div>
           </div>
         )}
         {trainee.retentionMonths !== null && trainee.retentionMonths !== undefined && (
           <div className="flex items-start gap-2.5">
-            <ShieldCheck className="w-4.5 h-4.5 text-slate-400 mt-0.5 shrink-0" />
+            <ShieldCheck className="w-4.5 h-4.5 text-slate-400 dark:text-white/40 mt-0.5 shrink-0" />
             <div>
-              <p className="text-xs text-slate-400">Retention</p>
-              <p className="text-ink-800 font-medium">{trainee.retentionMonths} months</p>
+              <p className="text-xs text-slate-400 dark:text-white/40">Retention</p>
+              <p className="text-ink-800 dark:text-white/80 font-medium">{trainee.retentionMonths} months</p>
             </div>
           </div>
         )}
       </div>
 
       <div>
-        <p className="text-xs text-slate-400 mb-2">Skills</p>
+        <p className="text-xs text-slate-400 dark:text-white/40 mb-2">Skills</p>
         <div className="flex flex-wrap gap-1.5">
           {trainee.skills.map((s) => <Badge key={s} variant="accent">{s}</Badge>)}
         </div>

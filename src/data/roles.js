@@ -1,6 +1,6 @@
 import {
   Landmark, GraduationCap, Briefcase, UserRound,
-  LayoutDashboard, TrendingUp, Target, BarChart3,
+  LayoutDashboard, TrendingUp, Target, BarChart3, PieChart,
 } from "lucide-react";
 
 export const ROLES = [
@@ -16,7 +16,7 @@ export const ROLES = [
     label: "Training Institute",
     description: "Track trainee progress and program effectiveness.",
     icon: GraduationCap,
-    landingRoute: "/government", // institute view reuses the program-effectiveness lens for this MVP
+    landingRoute: "/institute",
   },
   {
     id: "employer",
@@ -36,14 +36,18 @@ export const ROLES = [
 
 export const getRole = (id) => ROLES.find((r) => r.id === id);
 
-// Sidebar navigation, scoped per role. Every path here resolves to a real
-// route — nothing links to a page that doesn't exist.
 export const NAV_BY_ROLE = {
   government: [
     { label: "Dashboard", to: "/government", icon: LayoutDashboard },
     { label: "Employment Outcomes", to: "/employment-outcomes", icon: TrendingUp },
     { label: "Skill Gap Analysis", to: "/skill-gap-analysis", icon: Target },
     { label: "Program Impact", to: "/program-impact", icon: BarChart3 },
+    { label: "Program Analysis", to: "/program-analysis", icon: PieChart },
+  ],
+  institute: [
+    { label: "Dashboard", to: "/institute", icon: LayoutDashboard },
+    { label: "Program Impact", to: "/program-impact", icon: BarChart3 },
+    { label: "Skill Gap Analysis", to: "/skill-gap-analysis", icon: Target },
   ],
   employer: [
     { label: "Dashboard", to: "/employer", icon: LayoutDashboard },
