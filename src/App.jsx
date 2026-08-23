@@ -3,7 +3,6 @@ import { RoleProvider } from "./context/RoleContext.jsx";
 import RequireRole from "./components/layout/RequireRole.jsx";
 
 import Landing from "./pages/Landing.jsx";
-import Login from "./pages/login.jsx";
 import RoleSelection from "./pages/RoleSelection.jsx";
 import GovernmentDashboard from "./pages/GovernmentDashboard.jsx";
 import TraineeDashboard from "./pages/TraineeDashboard.jsx";
@@ -18,7 +17,6 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/roles" element={<RoleSelection />} />
 
           <Route path="/government" element={<RequireRole><GovernmentDashboard /></RequireRole>} />

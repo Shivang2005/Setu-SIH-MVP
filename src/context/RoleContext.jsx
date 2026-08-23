@@ -11,7 +11,6 @@ export function RoleProvider({ children }) {
 
   useEffect(() => {
     if (role) window.localStorage.setItem(STORAGE_KEY, role);
-    else window.localStorage.removeItem(STORAGE_KEY);
   }, [role]);
 
   return <RoleContext.Provider value={{ role, setRole }}>{children}</RoleContext.Provider>;
