@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, Search, Bell, ChevronDown } from "lucide-react";
 import { useRole } from "../../context/RoleContext.jsx";
 import { getRole } from "../../data/roles.js";
@@ -12,10 +13,16 @@ const DEMO_USER = {
 };
 
 export default function Topbar({ title, onMenuClick }) {
-  const { role } = useRole();
+  const { role, setRole } = useRole();
+  const navigate = useNavigate();
   const [notifOpen, setNotifOpen] = useState(false);
   const roleMeta = getRole(role) || getRole("government");
   const user = DEMO_USER[role] || DEMO_USER.government;
+
+  const handleProfileClick = () => {
+    setRole(null);
+    navigate("/login");
+  };
 
   return (
     <header className="h-16 shrink-0 border-b border-line bg-white/80 backdrop-blur sticky top-0 z-20 flex items-center gap-4 px-4 lg:px-6">
@@ -65,16 +72,19 @@ export default function Topbar({ title, onMenuClick }) {
           )}
         </div>
 
-        <div className="flex items-center gap-2 pl-2 sm:border-l border-line">
+        <button
+          onClick={handleProfileClick}
+          className="flex items-center gap-2 pl-2 sm:border-l border-line hover:bg-slate-50 rounded-lg pr-2 py-1 transition-colors"
+        >
           <span className="w-8 h-8 rounded-full bg-ink-700 text-white text-xs font-medium flex items-center justify-center shrink-0">
             {initials(user.name)}
           </span>
-          <div className="hidden sm:block leading-tight">
+          <div className="hidden sm:block leading-tight text-left">
             <p className="text-sm font-medium text-ink-900">{user.name}</p>
             <p className="text-xs text-slate-400">{roleMeta.label}</p>
           </div>
           <ChevronDown className="w-4 h-4 text-slate-400 hidden sm:block" />
-        </div>
+        </button>
       </div>
     </header>
   );

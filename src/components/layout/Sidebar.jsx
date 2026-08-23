@@ -11,12 +11,11 @@ export default function Sidebar({ open, onClose }) {
 
   const handleSwitchRole = () => {
     setRole(null);
-    navigate("/roles");
+    navigate("/login");
   };
 
   return (
     <>
-      {/* mobile scrim */}
       {open && (
         <div className="fixed inset-0 bg-ink-950/40 z-30 lg:hidden" onClick={onClose} />
       )}
